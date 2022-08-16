@@ -1,5 +1,6 @@
 from urllib import request
 import requests
+from datetime import datetime
 from credentials import *
 
 pixela_endpoint = "https://pixe.la/v1/users"
@@ -38,11 +39,15 @@ headers = {
 
 pixels_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{READING_GRAPH}"
 
+today = datetime.now()
+
 pixels_config = {
-    "date": "20220815",
-    "quantity": "36.2",
+    "date": today.strftime("%Y%m%d"),
+    "quantity": "00.0",
 }
 
 response = requests.post(url=pixels_endpoint, json=pixels_config, headers=headers)
 print(response.text)
 
+# Just update the quantity, run 'python3 main.py', and you're good to go'
+# if you're backfilling data, make sure you drop the '.now' from the datetime
