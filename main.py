@@ -51,3 +51,25 @@ print(response.text)
 
 # Just update the quantity, run 'python3 main.py', and you're good to go'
 # if you're backfilling data, make sure you drop the '.now' from the datetime
+
+
+
+
+
+
+
+# # WHENEVER I NEED TO UPDATE OR DELETE PAST DATA FOR CORRECTIONS, USE OPERATION BELLOW 
+# updates_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{READING_GRAPH}/{today.strftime('%Y%m%d')}"
+
+# updates_data = {
+#     "quantity": "10.0"
+# }
+
+# response = requests.put(url=updates_endpoint, json=updates_data, headers=headers)
+# print(response.text)
+
+# #  DELETE 
+# delete_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{READING_GRAPH}/{today.strftime('%Y%m%d')}"
+
+# response = requests.delete(url=delete_endpoint)
+# print(response.text)
